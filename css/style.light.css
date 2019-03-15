@@ -1,0 +1,85 @@
+body
+{
+	background: #fff;
+	color: #111
+}
+
+/* ------------------------------------ */
+
+.block
+{
+	background: #FAFAFA;
+}
+
+/* sidebar */
+
+.categories li a
+{
+	color: #999;
+}
+
+.categories li a:hover
+{
+	color: #444;
+}
+
+.categories li.active
+{
+	text-shadow: 0 0 22px rgba(0, 0, 0, 0.3);
+}
+
+.categories li.active a
+{
+	color: #353EA2;
+	border-right: 6px solid #353EA2;
+}
+
+/* LIST */
+
+.list .item {
+	background: #FAFAFA;
+	border: 1px solid #BFBFBF;
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.list .item .addr
+{
+	background: #FAFAFA;
+	color: #999;
+}
+
+.list .active
+{
+	border: 1px solid #353EA2;
+}
+
+.list .active .addr
+{
+	color: #668C46
+}
+
+.list .active .link1,
+.list .active .link2,
+.list .active .link3
+{
+	color: #888;
+}
+
+.list .item p
+{
+	border-top: 1px solid #DEDEDE;
+}
+
+.list .item span.type {	color: #353EA2 }
+.list .item span.param { color: #8C8C8C }
+.list .item span.namespace
+{
+	color: #D1D1D1;
+}
+
+/* DATEPICKER */
+
+.datepicker
+{
+	border-top: 1px solid #DEDEDE;
+}

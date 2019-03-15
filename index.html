@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" /> 
+	<title>Backup of nativedb</title>
+
+	<link rel="stylesheet" type="text/css" href="css/reset.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.light.min.css">
+
+	<script type="text/javascript" src="js/vue.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div class="content">
+			<div class="sidebar left">
+				<div class="block">
+					<form v-on:submit.prevent="">
+						<input type="text" placeholder="search" v-model="query" />
+					</form>
+				</div>
+				<div class="block"><p>Backup of all nativedb functions.<br>Hope i fixed issue with Incapsula</p></div>
+				<ul class="categories">
+					<li v-if="namespaces" v-for="item in namespaces" :class="{ active: isMenuItemActive(item) !== null }">
+						<a v-bind:href="[ '#' + item ]" v-on:click.prevent="onMenuItemClick(item)">{{ item }}</a>
+					</li>
+				</ul>
+				<div class="block"><p>All content is from <a href="http://www.dev-c.com/nativedb/">nativedb</a></p> TIPS:<p>Hold SHIFT and click on namespace to open several namespaces.</p><p>Hold SHIFT and click on number sign to share several functions</p><p>Hold CTRL and click on namespace to prevent adding it to url</p></div>
+				<a class="theme-switch"
+				   v-on:click.prevent="switchTheme()"
+				   href="#">{{ theme ? 'light theme' : 'dark theme' }}</a>
+			</div>
+			<div class="list right">
+				<div v-if="content.length !== 0" v-for="namespace in content">
+					<h1 class="namespace">{{ namespace.name.toUpperCase() }} [{{ Object.keys(namespace.body).length }}]</h1>
+					<div v-if="content" v-for="(item, key) in namespace.body" :id="key">
+						<item :def="item"
+							  :def-Addr="key"
+							  :open="false"
+							  :diff-Open="false"
+							  :namespace="namespace.name"></item>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<!-- Function item -->
+	<template id="item">
+		<div class="item" v-bind:class="{ active: open }">
+			<h5 v-html="name" v-on:click="onClick($event)"></h5>
+			<div class="addr">{{ addr }}
+				<a class="link1" v-if="open"
+				   :href="linkAddr" title="Get link to this function"
+				   v-on:click.prevent="onGetLinkClick(linkAddr)">#</a>
+				<a class="link2" v-if="open"
+				   :href="[ 'http://www.dev-c.com/nativedb/func/info/' + defAddr ]"
+				   target="_blank"
+				   title="Open function on nativedb">N</a>
+				<a class="link3" v-if="open"
+				   href="#"
+				   title="Show diffs"
+				   v-on:click.prevent="openDiffs()">?</a>
+			</div>
+			<div class="full" v-if="open">
+				<p v-if="description" v-html="description"></p>
+				<diff v-if="diffOpen"></diff>
+			</div>
+		</div>
+	</template>
+
+	<template id="diff">
+		<div>
+			<datepicker></datepicker>
+			<li>
+				Soon
+			</li>
+		</div>
+	</template>
+
+	<template id="diffitem">
+		<li class="diffitem">
+
+		</li>
+	</template>
+
+	<template id="datepicker">
+		<div class="datepicker">
+			<select v-model="year">
+				<option v-for="y in getYears" v-bind:selected="y === year">{{ y }}</option>
+			</select>
+			<select v-model="month">
+				<option v-for="(m, i) in getMonths" v-bind:value="i" v-bind:selected="i === month">{{ m }}</option>
+			</select>
+			<select v-model="day" v-if="showDays">
+				<option v-for="d in getDays" v-bind:selected="d === day">{{ d }}</option>
+			</select>
+		</div>
+	</template>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.3"></script>
+	<script type="text/javascript" src="js/js.cookie.min.js"></script>
+	<script type="text/javascript" src="js/app.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+body
+{
+	background: #333;
+	color: #EDEDED
+}
+
+a { color: #EDEDED }
+
+input
+{
+	background: #333;
+	border: none;
+	border: 1px solid #555;
+	color: #ccc
+}
+
+/* ------------------------------------ */
+
+.block
+{
+	background: #3D3D3D;
+}
+
+/* sidebar */
+
+.categories li a
+{
+	color: #ccc;
+}
+
+.categories li a:hover
+{
+	color: #fff;
+}
+
+.categories li.active
+{
+	text-shadow: 0 0 22px rgba(255, 255, 255, 0.3);
+}
+
+.categories li.active a
+{
+	color: #5594ED;
+	border-right: 6px solid #5594ED;
+}
+
+/* LIST */
+
+.list .item {
+	background: #3D3D3D;
+	border: 1px solid #4A4A4A;
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.list .item .addr
+{
+	background: #3D3D3D;
+	color: #7D7D7D;
+}
+
+.list .active
+{
+	border: 1px solid #5594ED;
+	box-shadow: 0 0 5px #5594ED;
+}
+
+.list .active .addr
+{
+	color: #7BB34D
+}
+
+.list .active .link1,
+.list .active .link2,
+.list .active .link3
+{
+	color: #999;
+}
+
+.list .item p
+{
+	border-top: 1px solid #4A4A4A;
+}
+
+.list .item span.type {	color: #5594ED }
+.list .item span.param { color: #B0B0B0 }
+.list .item span.namespace
+{
+	color: #777;
+}
+
+/* DATEPICKER */
+
+.datepicker
+{
+	border-top: 1px solid #4A4A4A;
+}
+
+.datepicker select
+{
+	background: #333;
+	color: #ccc;
+	border-color: #7D7D7D
+}
